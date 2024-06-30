@@ -1,0 +1,21 @@
+h1{
+    text-decoration: underline;
+}
+.container{
+    box-sizing: border-box;
+    border: 2px solid black;
+    width:60%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.btn-container{
+    text-align: right;
+    margin-right: 10px;
+
+}
+.btn{
+    background-color: lightblue;
+    color: white;
+    padding: 5px 5px;
+    box-shadow: 3px 3px black;
+}

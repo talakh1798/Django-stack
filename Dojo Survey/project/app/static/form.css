@@ -1,0 +1,44 @@
+.container{
+    box-sizing: border-box;
+    border: 2px solid black;
+    width:60%;
+    margin: 0 auto;
+    padding: 10px;
+
+}
+.btn{
+    background-color: lightblue;
+    color: white;
+}
+label{
+    font-weight: bolder;
+}
+.name{
+    padding: 10px;
+}
+.location{
+    padding: 10px;
+}
+.language{
+    padding: 10px;
+}
+.gender{
+    padding: 10px;
+}
+.comment_word{
+  margin-left: 10px;
+}
+.comment{
+    padding: 10px;
+}
+.btn_container{
+    text-align: right;
+    margin-right: 10px;
+
+}
+.btn{
+    background-color: lightblue;
+    color: white;
+    padding: 5px 5px;
+    box-shadow: 3px 3px black;
+}

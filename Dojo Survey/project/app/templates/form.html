@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/result/" method="post">
+            {%csrf_token%}
+            <div class="name">
+                <label>Your Name :</label>
+                <input type="text" name="name">
+            </div>
+            <div class="location">
+                <label>Dojo location :</label>
+                <select name="location">
+                    <option value="Sane Jose">Sane Jose</option>
+                    <option value="Louisiana">Louisiana</option>
+                    <option value="Ohio">Ohio</option>
+                </select>
+            </div>
+            <div class="language">
+                <label>Favorite Language :</label>
+                <select name="languages">
+                    <option value="Python">Python</option>
+                    <option value="Java script">java script</option>
+                    <option value="C++">C++</option>
+                </select>
+            </div>
+            <div class="gender">
+                <label>Gender :</label>
+                <div>
+                    <input type="radio" name="gender" value="Male" id="male">
+                    <label for="male">Male</label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="Female" id="female">
+                    <label for="female">Female</label>
+                </div>
+                <div>
+                    <input type="radio" name="gender" value="Other" id="other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+            <label class="comment_word">Comment :</label>
+            <div class="comment">
+                <textarea name="comment" cols="30" rows="3"></textarea>
+            </div>
+            <div class="btn_container">
+                <button class="btn">button</button>
+            </div>
+        </form>
+</body>
+
+</html>

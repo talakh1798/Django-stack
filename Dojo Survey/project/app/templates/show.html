@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey Indext</title>
+    <link rel="stylesheet" href="{% static 'show.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submitted Information</h1>
+        <p><strong>Your Name:</strong> {{ name }}</p>
+        <p><strong>Dojo Location:</strong> {{ location }}</p>
+        <p><strong>Favorite Language:</strong> {{ languages }}</p>
+        <p><strong>Gender:</strong> {{ gender }}</p>
+        <p><strong>Comment:</strong> {{ comment }}</p>
+        <div class="btn-container">
+            <form action="/">
+                <button class="btn">Go Back</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
