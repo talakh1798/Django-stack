@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'mystyle.css'%}">
+</head>
+<body>
+    <h1>Counter</h1>
+    <h3>{{request.session.count}} times</h3>
+    <form action="{% url 'destroy_session' %}" method="post">
+        {% csrf_token %}
+        <button class="reset" type="submit">Reset Counter</button>
+    </form>
+    <form action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        <button class="add" type="add">add +2</button>
+    </form>
+</body>
+</html>
