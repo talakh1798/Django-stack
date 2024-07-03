@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>great number</title>
+</head>
+<body>
+    <h1>Great Number Game</h1>
+    <div class="messages">
+        {% if 'low' in request.session.msg %}
+            <p style="color: red;">{{ request.session.msg }}</p>
+        {% elif 'high' in request.session.msg %}
+            <p style="color: red;">{{ request.session.msg }}</p>
+        {% elif 'Correct' in request.session.msg %}
+            <p style="color: green;">{{ request.session.msg }}</p>
+        {% endif %}
+    </div>
+   
+    <form action="{% url 'great_number'%}" method="post">
+        {%csrf_token%}
+        <input type="number" name="guess">
+        <button type="submit">submit</button>
+    </form>
+    <form action="{% url 'reset'%}" method="post">
+        {%csrf_token%}
+        <button type="submit">Play Again!</button>
+    </form>
+   
+</body>
+</html>
