@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+</head>
+
+<body>
+    <h2>Your Gold<span> {{gold}}<span></h2>
+    <form action="{% url 'process_money'%}" method="POST">
+        {%csrf_token%}
+        <h2>Farm</h2>
+        <h4>(earns 10-20 gold)</h4>
+        <input type="hidden" name="building" value="farm">
+        <input type="submit" value="Find Gold">
+    </form>
+    <form action="{% url 'process_money'%}" method="POST">
+        {%csrf_token%}
+        <h2>Cave</h2>
+        <h4>(earns 10-20 gold)</h4>
+        <input type="hidden" name="building" value="Cave">
+        <input type="submit" value="Find Gold">
+    </form>
+    <form action="{% url 'process_money'%}" method="POST">
+        {%csrf_token%}
+        <h2>House</h2>
+        <h4>(earns 10-20 gold)</h4>
+        <input type="hidden" name="building" value="House">
+        <input type="submit" value="Find Gold">
+    </form>
+    <form action="{% url 'process_money'%}" method="POST">
+        {%csrf_token%}
+        <h2>Quest</h2>
+        <h4>(earns 0-50 gold)</h4>
+        <input type="hidden" name="building" value="Quest">
+        <input type="submit" value="Find Gold">
+    </form>
+    <div>
+        <h1>Activities:</h1>
+        <div class="activity-log">
+            {%for activity in activities%}
+                {%if 'lost' in activity%}
+                    <p style="color: red;">{{activity}}</p>
+                {%else%}
+                    <p style="color: green;">{{activity}}</p>
+                {%endif%} 
+            {%endfor%}          
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>
