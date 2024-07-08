@@ -1,0 +1,42 @@
+from django.db import models
+
+class User(models.Model):
+    first_name=models.CharField(max_length=20)
+    last_name=models.CharField(max_length=20)
+    email_address=models.CharField(max_length=30)
+    age=models.IntegerField()
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True) 
+
+     python manage.py makemigrations
+     python manage.py migrate   
+
+in shell:
+
+python manage.py shell
+
+from users_app.models import User
+
+1. User.objects.create(first_name="tala", last_name="khaled", email="tala@gmail.com", age=26)
+    User.objects.create(first_name="omar", last_name="mahmoud", email="omar@gmail.com", age=36)
+    User.objects.create(first_name="ammar", last_name="ahmd", email="ammar@gmail.com", age=46)
+
+2.User.objects.all()
+<QuerySet [<User: User object (1)>, <User: User object (2)>, <User: User object (3)>]>
+
+
+3. User.objects.last()
+<User: User object (3)>
+
+4.User.objects.first()
+<User: User object (1)>
+
+5.  user_new=User.objects.get(id=3)
+    user_new.last_name="Pancakes"
+    user_new.save()
+
+6.  user_remove=User.objects.get(id=2)
+    user_remove.delete()
+
+7.sort_users = User.objects.all().order_by('first_name')
+print(sort_users)
