@@ -1,0 +1,53 @@
+from django.db import models
+
+class Dojo(models.Model):
+    name = models.CharField(max_length=50)
+    city=models.CharField(max_length=50)
+    state=models.CharField(max_length=50)
+    desc=models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+   
+
+class Ninja(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    dojo = models.ForeignKey(Dojo, related_name='ninjas', on_delete=models.CASCADE)
+
+1. new_dojo=Dojo.objects.create(name="first_dojo",city="first_city",state="first_state")
+    new_dojo2=Dojo.objects.create(name="second_dojo",city="second_city",state="second_state")
+    new_dojo3=Dojo.objects.create(name="third_dojo",city="third_city",state="third_state")
+
+    Dojo.objects.all()
+    <QuerySet [<Dojo: Dojo object (1)>, <Dojo: Dojo object (2)>, <Dojo: Dojo object (3)>]>
+
+2.  new_dojo.delete()
+     new_dojo2.delete()
+    new_dojo3.delete()
+
+3.new_dojo=Dojo.objects.create(name="first_dojo",city="first_city",state="first_state")
+    new_dojo2=Dojo.objects.create(name="second_dojo",city="second_city",state="second_state")
+    new_dojo3=Dojo.objects.create(name="third_dojo",city="third_city",state="third_state")
+
+4. ninja_1=Ninja.objects.create(first_name="first_ninja",last_name="last_ninja",dojo=new_dojo)
+>>>ninja_2=Ninja.objects.create(first_name="first_ninja",last_name="last_ninja",dojo=new_dojo)
+>>>ninja_3=Ninja.objects.create(first_name="first_ninja",last_name="last_ninja",dojo=new_dojo)
+
+5. ninja_4=Ninja.objects.create(first_name="second_ninja",last_name="last_ninja",dojo=new_dojo2)
+>>> ninja_5=Ninja.objects.create(first_name="second_ninja",last_name="last_ninja",dojo=new_dojo2)
+>>> ninja_6=Ninja.objects.create(first_name="second_ninja",last_name="last_ninja",dojo=new_dojo2)
+
+6.ninja_7=Ninja.objects.create(first_name="third_ninja",last_name="last_ninja",dojo=new_dojo3)
+>>> ninja_8=Ninja.objects.create(first_name="third_ninja",last_name="last_ninja",dojo=new_dojo3)
+>>> ninja_9=Ninja.objects.create(first_name="third_ninja",last_name="last_ninja",dojo=new_dojo3)
+
+7.ninjas_first_dojo=new_dojo.ninjas.all()
+
+8.ninjas_last_dojo=new_dojo3.ninjas.all()
+
+9.last_ninja_dojo=ninja_9.dojo
+
+10.newest_dojo=Dojo.objects.create(name='dojo', city='dojo_city', state='dojo_state', desc='newest dojo')
+
+    
+
