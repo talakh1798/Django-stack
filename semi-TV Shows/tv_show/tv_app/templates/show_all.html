@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read one</title>
+</head>
+<body>
+    <a href="{% url 'show' %}">Go Back</a>
+    <h1>TV Show {{show.id}}</h1>
+    
+    <p>Title: {{show.title}}</p>
+    <p>Network: {{show.network}}</p>
+    <p>Release Date: {{show.release_date}}</p>
+    <p>Description: {{show.description}}</p>
+
+    <p>Last Update: {{show.last_update}} {% now "g:i" %}</p>
+    <a href="{% url 'edit_show_form' show.id %}">Edit</a> |
+    <a href="{% url 'delete_show' show.id %}">Delete</a>
+   
+
+
+    
+</body>
+</html>
