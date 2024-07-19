@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% load static %}
     <title>Create</title>
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">
 </head>
 <body>
+      
     <div>
         <h1>Add A New Show</h1>
+
         <form action="{% url 'create_show' %}" method="POST">
             {% csrf_token %}
             <label for="title">Title:</label>
@@ -15,7 +19,7 @@
             <input type="text" id="network" name="network" required>
 
             <label for="release_date">Release Date:</label>
-            <input type="date" id="release_date" name="release_date" required>
+            <input type="date" id="release_date" name="release_date" required><br>
 
             <label for="description">Description:</label>
             <textarea id="description" name="description" required></textarea>
@@ -24,5 +28,12 @@
         </form>
     </div>
     <a href="{% url 'show' %}">Go Back</a>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
 </body>
 </html>
