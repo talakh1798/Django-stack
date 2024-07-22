@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amadon</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <h3>Thank you for your business!</h3>
+    <p>We charged your credit card for <strong>{{product_price}} $</strong> </p>
+    <p>You have ordered <strong> {{quantity_ordered}} </strong> items so far and spent  <strong>{{total_charge}} $</strong>  with Amadon.com!</p>
+    <p>are you sure you want this items</p>
+    <form action="/success/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="description" value="{{ product.description }}">
+        <input type="hidden" name="price" value="{{ product.price }}">
+        <input type="submit" value="Confirm Purchase">
+    </form>
+    <p><a href="/">Go Back</a></p>
+</body>
+</html>
