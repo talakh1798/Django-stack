@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Book</title>
+</head>
+<body>
+    <h1>Welcome, {{first_name}} {{last_name}}</h1>
+    <h2>There and Back Again</h2>
+    <p><strong>Title:</strong> {{book.title}}</p>
+    <p><strong>Adding by:</strong>  {{ book.book_uploaded.first_name }} {{ book.book_uploaded.last_name }}</p>
+    <p><strong>Added on:</strong> {{book.created_at}}</p>
+    <p><strong>Last updated on:</strong> {{book.updated_at}}</p>
+    <p><strong>Description</strong>{{book.description}}</p>
+
+    <h2>Users Who Like This Book:</h2>
+    <ul>
+        {% for user in book.users_who_like.all %}
+            <li>{{ user.first_name }} {{ user.last_name }}</li>
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>
